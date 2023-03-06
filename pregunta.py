@@ -29,5 +29,6 @@ def ingest_data():
     df['principales_palabras_clave'] = df['principales_palabras_clave'].str[:-1]
     df['porcentaje_de_palabras_clave'] = df['porcentaje_de_palabras_clave'].str[:-2]
     df['porcentaje_de_palabras_clave'] = df['porcentaje_de_palabras_clave'].str.replace(',','.')
+    df['porcentaje_de_palabras_clave'] = pd.to_numeric(df['porcentaje_de_palabras_clave'])
 
     return df
