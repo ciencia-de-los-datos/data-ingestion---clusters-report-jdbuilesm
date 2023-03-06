@@ -25,7 +25,9 @@ def ingest_data():
     df = df.dropna()
     df = df.reset_index()
     del df ["index"]
-    df['porcentaje_de_palabras_clave']
     df = df.replace(r'\s+', ' ', regex=True)
+    df['principales_palabras_clave'] = df['principales_palabras_clave'].str[:-1]
+    df['porcentaje_de_palabras_clave'] = df['porcentaje_de_palabras_clave'].str[:-2]
+    df['porcentaje_de_palabras_clave'] = df['porcentaje_de_palabras_clave'].str.replace(',','.')
 
     return df
